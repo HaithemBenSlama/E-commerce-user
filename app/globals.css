@@ -7,3 +7,8 @@
     @apply h-12 px-5 rounded-full bg-transparent flex items-center gap-2 hover:bg-slate-500 duration-300 cursor-pointer;
   }
 }
+
+body {
+  padding: 0;
+  margin: 0;
+}

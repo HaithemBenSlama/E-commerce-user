@@ -11,6 +11,7 @@ import {
 } from "react-icons/ai";
 import { BsCart2 } from "react-icons/bs";
 import { FaStoreAlt } from "react-icons/fa";
+import Link from "next/link";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
@@ -35,7 +36,9 @@ const Navbar = () => {
                 <div className="w-4 grid grid-cols-2 gap-[2px]">
                   <FaStoreAlt />
                 </div>
-                <p className="text-sm font-semibold">All Products</p>
+                <Link className="text-sm font-semibold" href={"/products"}>
+                  All Products
+                </Link>
               </div>
 
               <div className="h-10 ml-10 mt-1 flex flex-1 relative w-96">
@@ -54,28 +57,30 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-4">
             <div className="navBarHover flex items-center gap-2 text-white">
               <AiOutlineHeart />
-              <div>
+              <Link href={"/whishlist"}>
                 <p className="text-xs">Recorder</p>
                 <h2 className="text-base font-semibold -mt-1">My Items</h2>
-              </div>
+              </Link>
             </div>
 
             <div className="navBarHover flex items-center gap-2 text-white">
               <AiOutlineUser className="text-lg" />
-              <div>
+              <Link href={"/account"}>
                 <p className="text-xs">Sign in</p>
                 <h2 className="text-base font-semibold -mt-1">Account</h2>
-              </div>
+              </Link>
             </div>
 
-            <div className="flex items-center text-white">
-              <div className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent relative">
-                <BsCart2 className="text-2xl" />
-                <p className="text-xs">$0.00</p>
-                <span className="absolute w-4 h-4 bg-slate-400 text-black -top-1 right-4 rounded-full flex items-center justify-center text-xs">
-                  0
-                </span>
-              </div>
+            <div className="flex items-center text-white rounded-full hover:bg-slate-500 duration-300 cursor-pointer">
+              <Link href={"/carts"}>
+                <div className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent relative">
+                  <BsCart2 className="text-2xl" />
+                  <p className="text-xs">$0.00</p>
+                  <span className="absolute w-4 h-4 bg-slate-400 text-black -top-1 right-4 rounded-full flex items-center justify-center text-xs">
+                    0
+                  </span>
+                </div>
+              </Link>
             </div>
           </div>
           <div className="md:hidden flex items-center justify-between">
