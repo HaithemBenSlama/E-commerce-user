@@ -1,14 +1,6 @@
-import Featured from "@/pages/site/components/Featured";
-import Navbar from "@/pages/site/components/Navbar";
-import NewProducts from "@/pages/site/components/NewProducts";
-import Image from "next/image";
+import Featured from "@/app/Home/components/Featured";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
-  return (
-    <main>
-      <Navbar />
-      <Featured />
-      <NewProducts />
-    </main>
-  );
+  return <main></main>;
 }

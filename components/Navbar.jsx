@@ -16,7 +16,7 @@ import Link from "next/link";
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   return (
-    <nav className="bg-gray-800">
+    <nav className="bg-gray-800 fixed w-full">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
@@ -107,28 +107,28 @@ const Navbar = () => {
           <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a
               href="/"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
+              class="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
             >
               <AiOutlineHome className="mr-5" />
               Home
             </a>
             <a
               href="/"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
+              class="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
             >
               <FaStoreAlt className="mr-5" />
               All product
             </a>
             <a
               href="/"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
+              class="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
             >
               <AiOutlineHeart className="mr-5" />
               Recorder
             </a>
             <a
               href="/"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
+              class="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
             >
               <AiOutlineUser className="mr-5" />
               Account
