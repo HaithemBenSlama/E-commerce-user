@@ -8,7 +8,7 @@ const BestSales = ({ data }) => {
       <Title text={"Best Sales"} />
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-5 ">
         {data?.map((item) => (
-          <Card data={item} />
+          <Card data={item} key={item.p_id} />
         ))}
       </div>
     </div>

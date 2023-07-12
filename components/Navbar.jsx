@@ -103,45 +103,45 @@ const Navbar = () => {
         </div>
       </div>
       {navbar && (
-        <div class="md:hidden">
-          <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a
               href="/"
-              class="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
+              className="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
             >
               <AiOutlineHome className="mr-5" />
               Home
             </a>
             <a
               href="/"
-              class="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
+              className="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
             >
               <FaStoreAlt className="mr-5" />
               All product
             </a>
             <a
               href="/"
-              class="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
+              className="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
             >
               <AiOutlineHeart className="mr-5" />
               Recorder
             </a>
             <a
               href="/"
-              class="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
+              className="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
             >
               <AiOutlineUser className="mr-5" />
               Account
             </a>
           </div>
-          <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <div class="relative">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <div className="relative">
               <input
                 type="text"
-                class="bg-gray-700 text-white rounded-md pl-8 pr-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="bg-gray-700 text-white rounded-md pl-8 pr-3 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Search"
               />
-              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
                 <IoSearchOutline />
               </div>
             </div>

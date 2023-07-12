@@ -17,7 +17,6 @@ export const dataHome = {
       p_discount: 0.25,
       p_price: 2399,
     },
-
     {
       p_id: 14,
       p_photo:

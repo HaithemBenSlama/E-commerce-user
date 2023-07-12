@@ -35,9 +35,9 @@ const Banner = () => {
                 <span>Shop Now</span>
               </a>
             </div>
-            <div className="hidden sm:block w-full md:w-1/2 flex items-center">
+            <div className="hidden sm:block w-full md:w-1/2 items-center">
               <Image
-                className="md:visible mx-auto h-56 w-80"
+                className="md:visible mx-auto h-56 w-[300px]"
                 src={ad}
                 alt="Ad Image"
               />

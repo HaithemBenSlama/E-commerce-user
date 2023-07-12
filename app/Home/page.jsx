@@ -7,6 +7,7 @@ import { dataHome } from "./variables/data";
 import Banner from "./components/Banner";
 import BestSells from "./components/BestSales";
 import BestRating from "./components/BestRating";
+import Footer from "@/components/Footer";
 const page = () => {
   return (
     <main>
@@ -18,6 +19,7 @@ const page = () => {
         <BestSells data={dataHome?.newArrivals} />
         <BestRating data={dataHome?.newArrivals} />
       </div>
+      <Footer />
     </main>
   );
 };
