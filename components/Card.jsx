@@ -1,10 +1,21 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Rating from "./Rating";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const Card = ({ data }) => {
   const calculateDiscountedPrice = (price, discount) => {
     const discountedPrice = price * (1 - discount);
     return discountedPrice.toFixed(0);
+  };
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
   };
 
   return (
@@ -16,6 +27,17 @@ const Card = ({ data }) => {
           alt="product image"
         />
       </a>
+      <div
+        className="absolute top-4 right-4 hover:scale-150 duration-300"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {isHovered ? (
+          <AiFillHeart className="text-red-500 text-xl" />
+        ) : (
+          <AiOutlineHeart className="text-red-500 text-xl" />
+        )}{" "}
+      </div>
       <div className="px-5 pb-5">
         <a href="#">
           <h1 className="text-xl font-semibold tracking-tight text-gray-900 md:h-16 overflow-hidden overflow-ellipsis">

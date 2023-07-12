@@ -25,12 +25,15 @@ const Navbar = () => {
             </div>
             <div className="hidden md:flex ml-4">
               <div className="h-12 w-[2px] bg-slate-400 mx-2 "></div>
-              <div className="navBarHover flex items-center gap-2 text-white">
+              <Link
+                className="navBarHover flex items-center gap-2 text-white"
+                href={"/Home"}
+              >
                 <div className="w-4 grid grid-cols-2 gap-[2px]">
                   <AiOutlineHome />
                 </div>
                 <p className="text-sm font-semibold">Home</p>
-              </div>
+              </Link>
 
               <div className="navBarHover flex items-center gap-2 ml-6 text-white">
                 <div className="w-4 grid grid-cols-2 gap-[2px]">
