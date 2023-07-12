@@ -1,4 +1,4 @@
 import logo from "./logo.png";
 import macbook from "./macbook.png";
-
-export { logo, macbook };
+import ad from "./ad.png";
+export { logo, macbook, ad };

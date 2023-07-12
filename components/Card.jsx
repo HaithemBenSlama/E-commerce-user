@@ -8,7 +8,7 @@ const Card = ({ data }) => {
   };
 
   return (
-    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow hover:scale-105 hover:duration-300 hover:bg-slate-100 hover:cursor-pointer hover:shadow-2xl">
       <a href="#">
         <img
           className="p-8 rounded-t-lg object-contain h-40 mx-auto"
