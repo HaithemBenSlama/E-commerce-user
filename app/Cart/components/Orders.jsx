@@ -29,21 +29,25 @@ const Orders = () => {
           <span>Subtotal</span>
           <span class="flex items-center text-xl">
             <span class="mr-2 text-base">$</span>
-            <span>710,70</span>
+            <span>{cartTotalAmount.toFixed(2)}</span>
           </span>
         </div>
         <div class="flex items-center justify-between py-4 px-10 mb-3 leading-8 bg-white bg-opacity-50 font-heading font-medium rounded-3xl">
           <span>Shipping</span>
           <span class="flex items-center text-xl">
             <span class="mr-2 text-base">$</span>
-            <span>-</span>
+            <span>{cartTotalAmount > 100 ? 0 : 15.99}</span>
           </span>
         </div>
         <div class="flex items-center justify-between py-4 px-10 mb-14 leading-8 bg-white font-heading font-medium rounded-3xl">
           <span>Total</span>
           <span class="flex items-center text-xl text-blue-500">
             <span class="mr-2 text-base">$</span>
-            <span>700,70</span>
+            <span>
+              {cartTotalAmount > 100
+                ? cartTotalAmount.toFixed(2)
+                : cartTotalAmount.toFixed(2) + 15.99}
+            </span>
           </span>
         </div>
         <a
