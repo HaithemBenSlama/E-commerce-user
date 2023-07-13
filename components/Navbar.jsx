@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { logo } from "@/public/assets/images";
 import { IoSearchOutline } from "react-icons/io5";
@@ -13,8 +13,25 @@ import { BsCart2 } from "react-icons/bs";
 import { FaStoreAlt } from "react-icons/fa";
 import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = ({ refreshCart }) => {
   const [navbar, setNavbar] = useState(false);
+  const [cartItemCount, setCartItemCount] = useState(0);
+  const [cartTotalAmount, setCartTotalAmount] = useState(0);
+
+  useEffect(() => {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    let itemCount = 0;
+    let totalAmount = 0;
+
+    cartItems.forEach((item) => {
+      itemCount += item.count || 1; // Check for item count or default to 1
+      totalAmount += (item.count || 1) * item.p_price; // Multiply by item count or default to 1
+    });
+
+    setCartItemCount(itemCount);
+    setCartTotalAmount(totalAmount);
+  }, [refreshCart]);
+
   return (
     <nav className="bg-gray-800 fixed w-full">
       <div className="container mx-auto px-4">
@@ -23,8 +40,8 @@ const Navbar = () => {
             <div>
               <Image src={logo} alt="logo" className="w-32" />
             </div>
-            <div className="hidden md:flex ml-4">
-              <div className="h-12 w-[2px] bg-slate-400 mx-2 "></div>
+            <div className="hidden md:flex ml-4 space-x-4">
+              <div className="h-12 w-[2px] bg-slate-400"></div>
               <Link
                 className="navBarHover flex items-center gap-2 text-white"
                 href={"/Home"}
@@ -35,7 +52,7 @@ const Navbar = () => {
                 <p className="text-sm font-semibold">Home</p>
               </Link>
 
-              <div className="navBarHover flex items-center gap-2 ml-6 text-white">
+              <div className="navBarHover flex items-center gap-2 text-white">
                 <div className="w-4 grid grid-cols-2 gap-[2px]">
                   <FaStoreAlt />
                 </div>
@@ -44,7 +61,7 @@ const Navbar = () => {
                 </Link>
               </div>
 
-              <div className="h-10 ml-10 mt-1 flex flex-1 relative w-96">
+              <div className="h-10 w-80 mt-1 flex relative">
                 <input
                   className="h-full w-full rounded-full px-4 text-black text-base outline-none border-[1px] border-transparent focus-visible:border-black duration-200"
                   type="text"
@@ -57,7 +74,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center space-x-4">
             <div className="navBarHover flex items-center gap-2 text-white">
               <AiOutlineHeart />
               <Link href={"/whishlist"}>
@@ -78,10 +95,14 @@ const Navbar = () => {
               <Link href={"/carts"}>
                 <div className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent relative">
                   <BsCart2 className="text-2xl" />
-                  <p className="text-xs">$0.00</p>
-                  <span className="absolute w-4 h-4 bg-slate-400 text-black -top-1 right-4 rounded-full flex items-center justify-center text-xs">
-                    0
-                  </span>
+                  <div className="relative w-20">
+                    <p className="text-xs text-center">{`$${cartTotalAmount.toFixed(
+                      2
+                    )}`}</p>
+                    <span className="absolute -top-10 right-4 w-5 h-5 bg-slate-300 text-gray-700 rounded-full flex items-center justify-center text-xs font-semibold">
+                      {cartItemCount}
+                    </span>
+                  </div>
                 </div>
               </Link>
             </div>
@@ -90,9 +111,9 @@ const Navbar = () => {
             <div className="flex items-center text-white">
               <div className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent relative">
                 <BsCart2 className="text-2xl" />
-                <p className="text-xs">$0.00</p>
+                <p className="text-xs">{`$${cartTotalAmount.toFixed(2)}`}</p>
                 <span className="absolute w-4 h-4 bg-slate-400 text-black -top-1 right-4 rounded-full flex items-center justify-center text-xs">
-                  0
+                  {cartItemCount}
                 </span>
               </div>
             </div>
