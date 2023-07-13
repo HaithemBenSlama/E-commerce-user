@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import Orders from "./components/Orders";
 import Items from "./components/Items";
 import { GrFormPreviousLink } from "react-icons/gr";
+import { TbShoppingCartOff } from "react-icons/tb";
 
 const Cart = () => {
   const [data, setData] = useState();
@@ -45,7 +46,28 @@ const Cart = () => {
                 </div>
               </div>
             ) : (
-              <div>Your cart is empty</div>
+              <div>
+                <div class="flex items-center justify-center">
+                  <div class="flex flex-col items-center justify-center bg-slate-50 w-[500px] rounded-2xl shadow-xl h-72">
+                    <div class="text-3xl text-gray-500">
+                      <TbShoppingCartOff className="w-32 h-32" />
+                    </div>
+                    <div class="text-5xl text-gray-500 mt-10">
+                      Your cart is empty
+                    </div>
+                  </div>
+                </div>
+                <div class="md:w-72 hover:cursor-pointer">
+                  <a
+                    type="button"
+                    className="flex items-center justify-center gap-5 py-5 px-5 w-full text-xl leading-6 font-medium tracking-tighter bg-white hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-xl"
+                    href="/Home"
+                  >
+                    <GrFormPreviousLink />
+                    Back to shop
+                  </a>
+                </div>
+              </div>
             )}
           </div>
         </section>
