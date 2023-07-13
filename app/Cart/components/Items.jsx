@@ -1,5 +1,6 @@
 import Rating from "@/components/Rating";
 import React, { useEffect, useState } from "react";
+import { AiOutlineDelete } from "react-icons/ai";
 
 const Items = ({ index, item, setRefresh, refresh }) => {
   const [number, setNumber] = useState(item?.count);
@@ -13,12 +14,17 @@ const Items = ({ index, item, setRefresh, refresh }) => {
   };
 
   const handleMinusButton = () => {
-    if (number > 0) {
+    if (number > 1) {
       setNumber(number - 1);
       cart[index].count = cart[index].count - 1;
       localStorage.setItem("cart", JSON.stringify(cart));
       setRefresh(!refresh);
     }
+  };
+  const handleRemoveButton = () => {
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    setRefresh(!refresh);
   };
 
   return (
@@ -35,6 +41,20 @@ const Items = ({ index, item, setRefresh, refresh }) => {
               <div class="mt-5 sm:mt-0">
                 <h2 class="text-lg font-bold text-gray-900">{item?.p_name}</h2>
                 <Rating rate={item?.p_rating} />
+                {item?.p_discount === 0 ? (
+                  <span className="md:text-2xl text-2xl font-bold text-gray-900">
+                    {"$" + item?.p_price}
+                  </span>
+                ) : (
+                  <div>
+                    <span className="text-base font-medium text-red-700 line-through">
+                      {"$" + item?.p_price}
+                    </span>
+                    <span className="text-xl font-bold ml-2">
+                      {"$" + item?.priceAfterDiscount}
+                    </span>
+                  </div>
+                )}
               </div>
               <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <div class="flex items-center space-x-3">
@@ -93,22 +113,14 @@ const Items = ({ index, item, setRefresh, refresh }) => {
                     </svg>
                   </button>
                 </div>
-                <div class="flex items-center space-x-4">
-                  <p class="text-sm">{item?.priceAfterDiscount} $</p>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
+                <div class="flex items-center space-x-4 hover:scale-110 hover:duration-200">
+                  <a
+                    href="#"
+                    class=" flex font-medium text-red-600 hover:underline justify-center items-center"
+                    onClick={handleRemoveButton}
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                    <AiOutlineDelete className="w-5 h-5 mr-2" /> Remove
+                  </a>
                 </div>
               </div>
             </div>

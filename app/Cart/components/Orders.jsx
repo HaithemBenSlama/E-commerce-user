@@ -1,8 +1,12 @@
 import React, { useEffect, useState, refresh, setRefresh } from "react";
+import { AiOutlineClear } from "react-icons/ai";
 
-const Orders = ({ refresh }) => {
+const Orders = ({ refresh, setRefresh }) => {
   const [cartTotalAmount, setCartTotalAmount] = useState(0);
-
+  const handleClearCart = () => {
+    localStorage.removeItem("cart");
+    setRefresh(!refresh);
+  };
   useEffect(() => {
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
     let totalAmount = 0;
@@ -15,6 +19,15 @@ const Orders = ({ refresh }) => {
   }, [refresh]);
   return (
     <div class="w-full md:w-4/12 lg:w-1/4">
+      <div className="w-full justify-end flex p-5 h-20">
+        <button
+          onClick={handleClearCart}
+          className="flex justify-center items-center bg-red-700 text-slate-100 text-xl leading-6 font-medium tracking-tighter px-7 hover:cursor-pointer focus:ring-2 rounded-xl hover:scale-110 hover:duration-200"
+        >
+          <AiOutlineClear className="w-5 h-5 mr-2" /> Clear Cart
+        </button>
+      </div>
+
       <div className="bg-slate-200 p-5 mx-5 md:mx-0 rounded-xl shadow-xl">
         <div class="pb-9 mb-7 text-center border-b border-black border-opacity-5">
           <h2 class="text-3xl leading-normal font-heading font-medium text-center">

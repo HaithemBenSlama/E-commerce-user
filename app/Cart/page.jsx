@@ -14,10 +14,10 @@ const Cart = () => {
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem("cart"));
     setData(cart);
-  }, []);
+  }, [refresh]);
   return (
     <main>
-      <Navbar />
+      <Navbar refreshCart={refresh} />
       <div className="pt-28">
         <section class="pb-24 bg-blueGray-100 overflow-hidden">
           <div class="container px-4 mx-auto">
@@ -40,7 +40,7 @@ const Cart = () => {
                     />
                   ))}
                 </div>
-                <Orders refresh={refresh} />
+                <Orders refresh={refresh} setRefresh={setRefresh} />
                 <div class="md:w-72 hover:cursor-pointer">
                   <a
                     type="button"
@@ -54,12 +54,12 @@ const Cart = () => {
               </div>
             ) : (
               <div>
-                <div class="flex items-center justify-center">
+                <div class="flex items-center justify-center p-5 md:p-0">
                   <div class="flex flex-col items-center justify-center bg-slate-50 w-[500px] rounded-2xl shadow-xl h-72">
                     <div class="text-3xl text-gray-500">
                       <TbShoppingCartOff className="w-32 h-32" />
                     </div>
-                    <div class="text-5xl text-gray-500 mt-10">
+                    <div class="text-3xl md:text-5xl text-gray-500 mt-10">
                       Your cart is empty
                     </div>
                   </div>
