@@ -40,6 +40,7 @@ const Card = ({ data, refreshCart, setRefreshCart }) => {
       item.count = 1;
       existingCartItems.push(item);
     }
+    item.priceAfterDiscount = item.p_price * (1 - item.p_discount);
     localStorage.setItem("cart", JSON.stringify(existingCartItems));
     setRefreshCart(!refreshCart);
   };

@@ -25,7 +25,7 @@ const Navbar = ({ refreshCart }) => {
 
     cartItems.forEach((item) => {
       itemCount += item.count || 1; // Check for item count or default to 1
-      totalAmount += (item.count || 1) * item.p_price; // Multiply by item count or default to 1
+      totalAmount += (item.count || 1) * item.priceAfterDiscount; // Multiply by item count or default to 1
     });
 
     setCartItemCount(itemCount);
@@ -92,7 +92,7 @@ const Navbar = ({ refreshCart }) => {
             </div>
 
             <div className="flex items-center text-white rounded-full hover:bg-slate-500 duration-300 cursor-pointer">
-              <Link href={"/carts"}>
+              <Link href={"/Cart"}>
                 <div className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent relative">
                   <BsCart2 className="text-2xl" />
                   <div className="relative w-20">
