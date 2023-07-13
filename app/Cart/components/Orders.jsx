@@ -1,22 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, refresh, setRefresh } from "react";
 
-const Orders = () => {
-  const [cartItemCount, setCartItemCount] = useState(0);
+const Orders = ({ refresh }) => {
   const [cartTotalAmount, setCartTotalAmount] = useState(0);
 
   useEffect(() => {
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-    let itemCount = 0;
     let totalAmount = 0;
 
     cartItems.forEach((item) => {
-      itemCount += item.count || 1;
-      totalAmount += (item.count || 1) * item.priceAfterDiscount;
+      totalAmount += (item.count || 0) * item.priceAfterDiscount;
     });
 
-    setCartItemCount(itemCount);
     setCartTotalAmount(totalAmount);
-  }, []);
+  }, [refresh]);
   return (
     <div class="w-full md:w-4/12 lg:w-1/4">
       <div className="bg-slate-200 p-5 mx-5 md:mx-0 rounded-xl shadow-xl">
@@ -46,7 +42,7 @@ const Orders = () => {
             <span>
               {cartTotalAmount > 100
                 ? cartTotalAmount.toFixed(2)
-                : cartTotalAmount.toFixed(2) + 15.99}
+                : (cartTotalAmount + 15.99).toFixed(2)}
             </span>
           </span>
         </div>

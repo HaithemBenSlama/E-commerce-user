@@ -1,23 +1,23 @@
 import Rating from "@/components/Rating";
 import React, { useEffect, useState } from "react";
 
-const Items = ({ index, item }) => {
+const Items = ({ index, item, setRefresh, refresh }) => {
   const [number, setNumber] = useState(item?.count);
   const cart = JSON.parse(localStorage.getItem("cart"));
 
   const handlePlusButton = () => {
     setNumber(number + 1);
-    cart[index].count = cart[index].count + 1; // Example updated count value
-    // Store the updated cart array back into localStorage
+    cart[index].count = cart[index].count + 1;
     localStorage.setItem("cart", JSON.stringify(cart));
+    setRefresh(!refresh);
   };
 
   const handleMinusButton = () => {
     if (number > 0) {
       setNumber(number - 1);
-      cart[index].count = cart[index].count - 1; // Example updated count value
-      // Store the updated cart array back into localStorage
+      cart[index].count = cart[index].count - 1;
       localStorage.setItem("cart", JSON.stringify(cart));
+      setRefresh(!refresh);
     }
   };
 

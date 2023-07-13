@@ -10,6 +10,7 @@ import { TbShoppingCartOff } from "react-icons/tb";
 
 const Cart = () => {
   const [data, setData] = useState();
+  const [refresh, setRefresh] = useState();
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem("cart"));
     setData(cart);
@@ -30,10 +31,16 @@ const Cart = () => {
               <div class="flex flex-wrap -mx-4 xl:mb-24">
                 <div class="w-full md:w-8/12 lg:w-3/4 md:mb-0">
                   {data.map((item, index) => (
-                    <Items item={item} key={item?.p_id} index={index} />
+                    <Items
+                      item={item}
+                      key={item?.p_id}
+                      index={index}
+                      refresh={refresh}
+                      setRefresh={setRefresh}
+                    />
                   ))}
                 </div>
-                <Orders />
+                <Orders refresh={refresh} />
                 <div class="md:w-72 hover:cursor-pointer">
                   <a
                     type="button"
