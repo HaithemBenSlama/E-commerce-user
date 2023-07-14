@@ -2,13 +2,15 @@ import React from "react";
 
 const ShippingInfo = () => {
   return (
-    <button class="flex w-full pl-6 lg:pl-12 pr-6 py-4 justify-between items-center leading-7 rounded-2xl border-2 border-blueGray-200 hover:border-blueGray-300">
-      <h3 class="text-lg font-heading font-medium">Shipping &amp; returns</h3>
+    <button className="flex w-full pl-6 lg:pl-12 pr-6 py-4 justify-between items-center leading-7 rounded-2xl border-2 border-blueGray-200 hover:border-blueGray-300">
+      <h3 className="text-lg font-heading font-medium">
+        Shipping &amp; returns
+      </h3>
       <span>
         <svg
           width="12"
           height="8"
-          viewbox="0 0 12 8"
+          viewBox="0 0 12 8"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >

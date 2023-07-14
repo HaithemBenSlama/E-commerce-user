@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Rating from "./Rating";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BiCartAdd } from "react-icons/bi";
-import Link from "next/link";
 
 const Card = ({ data, refreshCart, setRefreshCart }) => {
   const calculateDiscountedPrice = (price, discount) => {

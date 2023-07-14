@@ -10,15 +10,15 @@ const SideImageContainer = ({ data, onImageClick }) => {
     onImageClick(imageUrl);
   };
   return (
-    <div class="w-full sm:w-auto min-w-max px-4 text-center flex sm:flex-col items-center justify-center">
+    <div className="w-full sm:w-auto min-w-max px-4 text-center flex sm:flex-col items-center justify-center">
       <a
-        class="inline-block sm:mb-12 mr-4 sm:mr-0 transform -rotate-90 sm:transform-none hover:text-blue-400"
+        className="inline-block sm:mb-12 mr-4 sm:mr-0 transform -rotate-90 sm:transform-none hover:text-blue-400"
         href="#"
       >
         <svg
           width="12"
           height="8"
-          viewbox="0 0 12 8"
+          viewBox="0 0 12 8"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -49,13 +49,13 @@ const SideImageContainer = ({ data, onImageClick }) => {
         isSelected={selectedImage === data?.p_img4}
       />
       <a
-        class="inline-block transform -rotate-90 sm:transform-none md:mt-5 hover:text-blue-400"
+        className="inline-block transform -rotate-90 sm:transform-none md:mt-5 hover:text-blue-400"
         href="#"
       >
         <svg
           width="12"
           height="8"
-          viewbox="0 0 12 8"
+          viewBox="0 0 12 8"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >

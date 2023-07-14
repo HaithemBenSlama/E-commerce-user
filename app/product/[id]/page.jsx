@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import LeftContent from "./component/LeftContent";
 import { dataProduct } from "./variables/data";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -9,22 +9,27 @@ import RightSide from "./component/RightSide";
 
 const page = () => {
   const item = dataProduct;
+  const [refreshCart, setRefreshCart] = useState(false);
 
   return (
     <main>
-      <Navbar />
+      <Navbar refreshCart={refreshCart} setRefreshCart={setRefreshCart} />
       <div className="pt-10">
-        <section class="pt-12 pb-24 bg-blueGray-100 rounded-b-10xl overflow-hidden">
-          <div class="container px-4 mx-auto">
-            <div class="flex flex-wrap -mx-4">
-              <div class="w-full px-4 py-5">
+        <section className="pt-12 pb-24 bg-blueGray-100 rounded-b-10xl overflow-hidden">
+          <div className="container px-4 mx-auto">
+            <div className="flex flex-wrap -mx-4">
+              <div className="w-full px-4 py-5">
                 <Breadcrumbs
                   path={[{ text: "Store", href: "/Store" }]}
                   terminalPath={item?.p_name}
                 />
               </div>
               <LeftContent data={item} />
-              <RightSide item={item} />
+              <RightSide
+                item={item}
+                refreshCart={refreshCart}
+                setRefreshCart={setRefreshCart}
+              />
             </div>
           </div>
         </section>
