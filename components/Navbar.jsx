@@ -33,7 +33,7 @@ const Navbar = ({ refreshCart }) => {
   }, [refreshCart]);
 
   return (
-    <nav className="bg-gray-800 fixed w-full">
+    <nav className="bg-gray-800 fixed w-full z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">

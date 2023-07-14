@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Rating from "./Rating";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BiCartAdd } from "react-icons/bi";
+import Link from "next/link";
 
 const Card = ({ data, refreshCart, setRefreshCart }) => {
   const calculateDiscountedPrice = (price, discount) => {
@@ -71,28 +72,31 @@ const Card = ({ data, refreshCart, setRefreshCart }) => {
 
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow md:hover:scale-105 md:hover:duration-300 md:hover:bg-slate-100 md:hover:cursor-pointer md:hover:shadow-2xl">
-      <a href="#">
+      <a href={"/product/" + data?.p_id}>
         <img
           className="p-8 rounded-t-lg object-contain h-52 mx-auto"
           src={data?.p_photo}
           alt="product image"
         />
       </a>
-
       <div className="px-5 pb-5">
-        <a href="#">
+        <a href={"/product/" + data?.p_id}>
           <h1 className="text-xl font-semibold tracking-tight text-gray-900 md:h-16 overflow-hidden overflow-ellipsis">
             <span className="line-clamp-2">{data?.p_name}</span>
           </h1>
         </a>
-        <Rating rate={data?.p_rating} />
+        <a href={"/product/" + data?.p_id}>
+          <Rating rate={data?.p_rating} />
+        </a>
         <div className="flex items-center justify-between">
           {data?.p_discount === 0 ? (
-            <span className="md:text-2xl text-2xl font-bold text-gray-900">
-              {"$" + data?.p_price}
-            </span>
+            <a href={"/product/" + data?.p_id}>
+              <span className="md:text-2xl text-2xl font-bold text-gray-900">
+                {"$" + data?.p_price}
+              </span>
+            </a>
           ) : (
-            <div>
+            <a href={"/product/" + data?.p_id}>
               <span className="text-base font-medium text-red-700 line-through">
                 {"$" + data?.p_price}
               </span>
@@ -100,7 +104,7 @@ const Card = ({ data, refreshCart, setRefreshCart }) => {
                 {"$" +
                   calculateDiscountedPrice(data?.p_price, data?.p_discount)}
               </span>
-            </div>
+            </a>
           )}
           {showTranslation ? (
             <div className="bg-blue-700 text-white rounded-lg p-3 absolute z-10 duration-500">
