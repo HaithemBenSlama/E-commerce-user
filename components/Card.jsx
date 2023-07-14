@@ -11,6 +11,7 @@ const Card = ({ data, refreshCart, setRefreshCart }) => {
 
   const [isHovered, setIsHovered] = useState(false);
   const [isItemInWishlist, setIsItemInWishlist] = useState(false);
+  const [showTranslation, setShowTranslation] = useState(false);
 
   useEffect(() => {
     const existingWishlistItems =
@@ -43,6 +44,11 @@ const Card = ({ data, refreshCart, setRefreshCart }) => {
     item.priceAfterDiscount = item.p_price * (1 - item.p_discount);
     localStorage.setItem("cart", JSON.stringify(existingCartItems));
     setRefreshCart(!refreshCart);
+    setShowTranslation(true);
+
+    setTimeout(() => {
+      setShowTranslation(false);
+    }, 1500);
   };
 
   const handleAddToWishlist = (item) => {
@@ -50,14 +56,12 @@ const Card = ({ data, refreshCart, setRefreshCart }) => {
       JSON.parse(localStorage.getItem("wishlist")) || [];
 
     if (isItemInWishlist) {
-      // Remove the item from the wishlist if it already exists
       const updatedWishlistItems = existingWishlistItems.filter(
         (wishlistItem) => wishlistItem.p_id !== item.p_id
       );
       localStorage.setItem("wishlist", JSON.stringify(updatedWishlistItems));
       setIsItemInWishlist(false);
     } else {
-      // Add the item to the wishlist if it doesn't exist
       const updatedWishlistItems = [...existingWishlistItems, item];
       localStorage.setItem("wishlist", JSON.stringify(updatedWishlistItems));
       setIsItemInWishlist(true);
@@ -97,26 +101,32 @@ const Card = ({ data, refreshCart, setRefreshCart }) => {
               </span>
             </div>
           )}
-          <div className="flex justify-between my-auto items-center">
-            <div
-              className="hover:scale-150 duration-300 mr-4 hover:cursor-pointer"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              onClick={() => handleAddToWishlist(data)}
-            >
-              {isItemInWishlist || isHovered ? (
-                <AiFillHeart className="text-red-500 text-xl w-7 h-7" />
-              ) : (
-                <AiOutlineHeart className="text-red-500 text-xl w-7 h-7 " />
-              )}
+          {showTranslation ? (
+            <div className="bg-blue-700 text-white rounded-lg p-3 absolute z-10 duration-500">
+              Product added to cart!
             </div>
-            <a
-              onClick={() => handleAddToCart(data)}
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center hover:scale-125 hover:duration-200"
-            >
-              <BiCartAdd className="w-5 h-5 " />
-            </a>
-          </div>
+          ) : (
+            <div className="flex justify-between my-auto items-center">
+              <div
+                className="hover:scale-150 duration-300 mr-4 hover:cursor-pointer"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onClick={() => handleAddToWishlist(data)}
+              >
+                {isItemInWishlist || isHovered ? (
+                  <AiFillHeart className="text-red-500 text-xl w-7 h-7" />
+                ) : (
+                  <AiOutlineHeart className="text-red-500 text-xl w-7 h-7 " />
+                )}
+              </div>
+              <a
+                onClick={() => handleAddToCart(data)}
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center hover:scale-125 hover:duration-200"
+              >
+                <BiCartAdd className="w-5 h-5 " />
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>
