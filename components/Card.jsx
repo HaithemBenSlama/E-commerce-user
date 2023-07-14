@@ -48,7 +48,7 @@ const Card = ({ data, refreshCart, setRefreshCart }) => {
 
     setTimeout(() => {
       setShowTranslation(false);
-    }, 1500);
+    }, 2000);
   };
 
   const handleAddToWishlist = (item) => {
@@ -66,6 +66,7 @@ const Card = ({ data, refreshCart, setRefreshCart }) => {
       localStorage.setItem("wishlist", JSON.stringify(updatedWishlistItems));
       setIsItemInWishlist(true);
     }
+    setRefreshCart(!refreshCart);
   };
 
   return (

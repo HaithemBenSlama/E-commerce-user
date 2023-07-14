@@ -77,7 +77,7 @@ const Navbar = ({ refreshCart }) => {
           <div className="hidden md:flex items-center space-x-4">
             <div className="navBarHover flex items-center gap-2 text-white">
               <AiOutlineHeart />
-              <Link href={"/whishlist"}>
+              <Link href={"/Wishlist"}>
                 <p className="text-xs">Recorder</p>
                 <h2 className="text-base font-semibold -mt-1">My Items</h2>
               </Link>
