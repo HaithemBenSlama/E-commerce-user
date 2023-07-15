@@ -18,7 +18,7 @@ const LeftContent = ({ data }) => {
         <MainImage imageUrl={mainImageUrl} />
       </div>
       <div className="hidden md:block">
-        <Feedback data={data} />
+        <Feedback data={data} key={data?.p_id} />
       </div>
     </div>
   );

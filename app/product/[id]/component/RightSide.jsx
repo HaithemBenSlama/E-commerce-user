@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import ShippingInfo from "./ShippingInfo";
 import Review from "./Review";
+import Feedback from "./Feedback";
+import Rating from "@/components/Rating";
 
 const RightSide = ({ item, refreshCart, setRefreshCart }) => {
   const [number, setNumber] = useState(1);
@@ -135,6 +137,12 @@ const RightSide = ({ item, refreshCart, setRefreshCart }) => {
           )}
         </h4>
       </div>
+      <div className="mb-6">
+        <h4 className="mb-3 font-heading font-medium text-lg">
+          <span>Rating:</span>
+          <Rating rate={item?.p_rating} />
+        </h4>
+      </div>
 
       <div className="mb-6 flex flex-row items-center">
         <h4 className="mb-3 font-heading font-medium text-lg mr-10">Qty:</h4>
@@ -228,6 +236,9 @@ const RightSide = ({ item, refreshCart, setRefreshCart }) => {
         <h4 className="mb-6 font-heading font-medium">More information</h4>
         <ShippingInfo />
         <Review />
+        <div className="md:hidden">
+          <Feedback data={item} />
+        </div>
       </div>
     </div>
   );
