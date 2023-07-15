@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import ShippingInfo from "./ShippingInfo";
+import Review from "./Review";
 
 const RightSide = ({ item, refreshCart, setRefreshCart }) => {
   const [number, setNumber] = useState(1);
@@ -226,6 +227,7 @@ const RightSide = ({ item, refreshCart, setRefreshCart }) => {
       <div>
         <h4 className="mb-6 font-heading font-medium">More information</h4>
         <ShippingInfo />
+        <Review />
       </div>
     </div>
   );

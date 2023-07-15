@@ -19,12 +19,6 @@ const Feedback = ({ data }) => {
           {data?.p_feedback.map((f) => (
             <ReviewCard data={f} />
           ))}
-
-          <div class="text-center">
-            <button class="inline-block w-full md:w-auto h-full py-4 px-10 leading-8 font-heading font-medium tracking-tighter text-xl text-white bg-blue-500 hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-xl">
-              View More
-            </button>
-          </div>
         </div>
       </div>
     </section>
