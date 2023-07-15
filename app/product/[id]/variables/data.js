@@ -20,4 +20,25 @@ export const dataProduct = {
   p_sales: "1.6M",
   p_revenue: "$3.5M",
   p_discount: 0.13,
+  p_nb_reviews: 100,
+  p_feedback: [
+    {
+      p_user_name: "Haithem ben Slama",
+      p_user_rate: 3.5,
+      p_review_date: "Apr 16,2023",
+      p_review_msg: "Good Service !",
+    },
+    {
+      p_user_name: "Haithem ben Slama",
+      p_user_rate: 3.5,
+      p_review_date: "Apr 16,2023",
+      p_review_msg: "Good Service !",
+    },
+    {
+      p_user_name: "Haithem ben Slama",
+      p_user_rate: 3.5,
+      p_review_date: "Apr 16,2023",
+      p_review_msg: "Good Service !",
+    },
+  ],
 };

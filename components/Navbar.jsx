@@ -24,8 +24,8 @@ const Navbar = ({ refreshCart }) => {
     let totalAmount = 0;
 
     cartItems.forEach((item) => {
-      itemCount += item.count || 1; // Check for item count or default to 1
-      totalAmount += (item.count || 1) * item.priceAfterDiscount; // Multiply by item count or default to 1
+      itemCount += item.count || 1;
+      totalAmount += (item.count || 1) * item.priceAfterDiscount;
     });
 
     setCartItemCount(itemCount);
@@ -56,7 +56,7 @@ const Navbar = ({ refreshCart }) => {
                 <div className="w-4 grid grid-cols-2 gap-[2px]">
                   <FaStoreAlt />
                 </div>
-                <Link className="text-sm font-semibold" href={"/products"}>
+                <Link className="text-sm font-semibold" href={"/Store"}>
                   All Products
                 </Link>
               </div>

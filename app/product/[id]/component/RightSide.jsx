@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { AiOutlineHeart } from "react-icons/ai";
+import React, { useState, useEffect } from "react";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import ShippingInfo from "./ShippingInfo";
 
 const RightSide = ({ item, refreshCart, setRefreshCart }) => {
   const [number, setNumber] = useState(1);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isItemInWishlist, setIsItemInWishlist] = useState(false);
 
   const calculateDiscountedPrice = (price, discount) => {
     const discountedPrice = price * (1 - discount);
@@ -59,6 +60,35 @@ const RightSide = ({ item, refreshCart, setRefreshCart }) => {
 
     localStorage.setItem("cart", JSON.stringify(existingCartItems));
     setRefreshCart(!refreshCart);
+  };
+
+  const handleAddToWishlist = (item) => {
+    const existingWishlistItems =
+      JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    const itemExistsInWishlist = existingWishlistItems.some(
+      (wishlistItem) => wishlistItem.p_id === item.p_id
+    );
+
+    if (itemExistsInWishlist) {
+      const updatedWishlistItems = existingWishlistItems.filter(
+        (wishlistItem) => wishlistItem.p_id !== item.p_id
+      );
+      localStorage.setItem("wishlist", JSON.stringify(updatedWishlistItems));
+      setIsItemInWishlist(false);
+    } else {
+      const newItem = {
+        p_id: item.p_id,
+        p_discount: item.p_discount,
+        p_price: item.p_price,
+        p_name: item.p_name,
+        p_photo: item.p_photo,
+        p_rating: item.p_rating,
+      };
+      const updatedWishlistItems = [...existingWishlistItems, newItem];
+      localStorage.setItem("wishlist", JSON.stringify(updatedWishlistItems));
+      setIsItemInWishlist(true);
+    }
   };
 
   return (
@@ -180,11 +210,15 @@ const RightSide = ({ item, refreshCart, setRefreshCart }) => {
         </div>
         <div className="w-full md:w-1/3 px-2">
           <a
-            className="flex w-full py-4 px-2 items-center justify-center leading-8 font-heading font-medium tracking-tighter text-xl text-center bg-slate-100 focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 hover:bg-opacity-60 rounded-xl"
-            href="#"
+            className="flex w-full py-4 px-2 items-center justify-center leading-8 font-heading font-medium tracking-tighter text-xl text-center bg-slate-100 focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 hover:bg-opacity-60 rounded-xl hover:cursor-pointer"
+            onClick={() => handleAddToWishlist(item)}
           >
             <span className="mr-2">Wishlist</span>
-            <AiOutlineHeart className="w-7 h-7" />
+            {isItemInWishlist ? (
+              <AiFillHeart className="text-red-500 text-xl w-7 h-7" />
+            ) : (
+              <AiOutlineHeart className="text-red-500 text-xl w-7 h-7 " />
+            )}
           </a>
         </div>
       </div>

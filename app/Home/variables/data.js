@@ -33,7 +33,7 @@ export const dataHome = {
       p_name: "IPHONE 14 PRO MAX 128GO Gold",
       p_price: 3990,
       p_rating: 3.5,
-      p_discount: 0,
+      p_discount: 0.13,
     },
     {
       p_id: 16,

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import SideImageContainer from "./SideImageContainer";
 import MainImage from "./MainImage";
+import Feedback from "./Feedback";
 
 const LeftContent = ({ data }) => {
   const [mainImageUrl, setMainImageUrl] = useState(data?.p_photo);
@@ -15,6 +16,9 @@ const LeftContent = ({ data }) => {
       <div className="flex -mx-4 flex-wrap items-center justify-between lg:justify-start lg:items-start xl:items-center">
         <SideImageContainer data={data} onImageClick={handleImageClick} />
         <MainImage imageUrl={mainImageUrl} />
+      </div>
+      <div className="hidden md:block">
+        <Feedback data={data} />
       </div>
     </div>
   );
