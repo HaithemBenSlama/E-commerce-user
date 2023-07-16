@@ -23,13 +23,19 @@ const VerifyEmail = () => {
       </div>
 
       <p>We're happy you're here. Let's get your email address verified</p>
-      <div class="mt-4">
+      <div class="mt-4 flex gap-6">
         <a
           href="/Store"
           class="px-3 py-3 text-gray-900 bg-gray-200 rounded-lg flex justify-center items-center font-medium"
         >
           <GrFormPreviousLink className="mr-3 w-5 h-5" />
           Back to shop
+        </a>
+        <a
+          href="/Store"
+          class="px-3 py-3 text-gray-900 bg-gray-200 rounded-lg flex justify-center items-center font-medium"
+        >
+          Set up your profile
         </a>
       </div>
     </div>
