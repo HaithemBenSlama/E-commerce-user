@@ -19,7 +19,7 @@ const Cart = () => {
     <main>
       <Navbar refreshCart={refresh} />
       <div className="pt-28">
-        <section className="pb-24 bg-blueGray-100 overflow-hidden">
+        <section className="pb-24 overflow-hidden">
           <div className="container px-4 mx-auto">
             <Breadcrumbs terminalPath={"Your cart"} />
             <div className="pb-9 mb-7 text-center ">

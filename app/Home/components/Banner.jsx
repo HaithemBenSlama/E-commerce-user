@@ -17,7 +17,7 @@ const Banner = () => {
               </h1>
               <a
                 className="flex items-center ml-10 mt-5 text-white font-medium hover:scale-105 hover:duration-300"
-                href="#"
+                href="/Store"
               >
                 <svg
                   className="mr-1"

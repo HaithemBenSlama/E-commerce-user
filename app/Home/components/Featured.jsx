@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { macbook } from "@/public/assets/images";

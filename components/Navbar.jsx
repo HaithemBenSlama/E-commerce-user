@@ -85,7 +85,7 @@ const Navbar = ({ refreshCart }) => {
 
             <div className="navBarHover flex items-center gap-2 text-white">
               <AiOutlineUser className="text-lg" />
-              <Link href={"/account"}>
+              <Link href={"/Login"}>
                 <p className="text-xs">Sign in</p>
                 <h2 className="text-base font-semibold -mt-1">Account</h2>
               </Link>
@@ -109,13 +109,15 @@ const Navbar = ({ refreshCart }) => {
           </div>
           <div className="md:hidden flex items-center justify-between">
             <div className="flex items-center text-white">
-              <div className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent relative">
-                <BsCart2 className="text-2xl" />
-                <p className="text-xs">{`$${cartTotalAmount.toFixed(2)}`}</p>
-                <span className="absolute w-4 h-4 bg-slate-400 text-black -top-1 right-4 rounded-full flex items-center justify-center text-xs">
-                  {cartItemCount}
-                </span>
-              </div>
+              <Link href={"/Cart"}>
+                <div className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent relative">
+                  <BsCart2 className="text-2xl" />
+                  <p className="text-xs">{`$${cartTotalAmount.toFixed(2)}`}</p>
+                  <span className="absolute w-4 h-4 bg-slate-400 text-black -top-1 right-4 rounded-full flex items-center justify-center text-xs">
+                    {cartItemCount}
+                  </span>
+                </div>
+              </Link>
             </div>
             <button
               className="p-2 text-white rounded-md outline-none focus:border-gray-400 navBarHover"
@@ -130,28 +132,28 @@ const Navbar = ({ refreshCart }) => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a
-              href="/"
+              href="/Home"
               className="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
             >
               <AiOutlineHome className="mr-5" />
               Home
             </a>
             <a
-              href="/"
+              href={"/Store"}
               className="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
             >
               <FaStoreAlt className="mr-5" />
               All product
             </a>
             <a
-              href="/"
+              href={"/Wishlist"}
               className="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
             >
               <AiOutlineHeart className="mr-5" />
               Recorder
             </a>
             <a
-              href="/"
+              href={"/Login"}
               className="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
             >
               <AiOutlineUser className="mr-5" />
