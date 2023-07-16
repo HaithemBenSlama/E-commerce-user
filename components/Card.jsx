@@ -74,7 +74,7 @@ const Card = ({ data, refreshCart, setRefreshCart }) => {
     <motion.div
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7 }}
+      transition={{ duration: 0.4 }}
     >
       <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow md:hover:scale-105 md:hover:duration-300 md:hover:bg-slate-100 md:hover:cursor-pointer md:hover:shadow-2xl">
         <a href={"/product/" + data?.p_id}>

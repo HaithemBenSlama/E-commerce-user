@@ -8,6 +8,9 @@ const Login = ({ handleComponentChange }) => {
   const handleClickRegister = () => {
     handleComponentChange("signup");
   };
+  const handleClickForgetPassword = () => {
+    handleComponentChange("forgetPassword");
+  };
   return (
     <div className="md:px-16 w-full px-10 mt-10 md:w-1/3 bg-slate-100 py-10 rounded-xl shadow-xl">
       <h2 className="font-bold text-2xl">Login</h2>
@@ -65,7 +68,10 @@ const Login = ({ handleComponentChange }) => {
         <ButtonApple />
         <ButtonFacebook />
       </div>
-      <p className="mt-6 text-xs border-b border-gray-400 py-4">
+      <p
+        onClick={handleClickForgetPassword}
+        className="mt-6 text-xs border-b border-gray-400 py-4 hover:underline hover:text-blue-600 hover:cursor-pointer"
+      >
         Forget your password ?
       </p>
       <div className="text-xs flex justify-between items-center mt-3">

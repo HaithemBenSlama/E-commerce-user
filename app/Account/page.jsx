@@ -6,6 +6,7 @@ import Login from "./Login";
 import { motion } from "framer-motion";
 import SignUp from "./SignUp";
 import ForgetPassword from "./ForgetPassword";
+import VerifyEmail from "./VerifyEmail";
 
 const MyAccount = () => {
   const [activeComponent, setActiveComponent] = useState("login");
@@ -21,6 +22,8 @@ const MyAccount = () => {
         return <SignUp handleComponentChange={handleComponentChange} />;
       case "forgetPassword":
         return <ForgetPassword />;
+      case "verifyEmail":
+        return <VerifyEmail />;
       default:
         return <Login />;
     }

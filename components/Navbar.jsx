@@ -85,7 +85,7 @@ const Navbar = ({ refreshCart }) => {
 
             <div className="navBarHover flex items-center gap-2 text-white">
               <AiOutlineUser className="text-lg" />
-              <Link href={"/Login"}>
+              <Link href={"/Account"}>
                 <p className="text-xs">Sign in</p>
                 <h2 className="text-base font-semibold -mt-1">Account</h2>
               </Link>
@@ -153,7 +153,7 @@ const Navbar = ({ refreshCart }) => {
               Recorder
             </a>
             <a
-              href={"/Login"}
+              href={"/Account"}
               className="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
             >
               <AiOutlineUser className="mr-5" />

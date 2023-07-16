@@ -8,6 +8,9 @@ const SignUp = ({ handleComponentChange }) => {
   const handleClickLogin = () => {
     handleComponentChange("login");
   };
+  const handleClickRegister = () => {
+    handleComponentChange("verifyEmail");
+  };
   return (
     <div className="md:px-16 w-full px-10 mt-10 md:w-1/3 bg-slate-100 py-10 rounded-xl shadow-xl">
       <h2 className="font-bold text-2xl">Sign Up</h2>
@@ -100,7 +103,10 @@ const SignUp = ({ handleComponentChange }) => {
             </label>
           </div>
         </div>
-        <button className="bg-slate-500 rounded-xl text-white py-2 hover:scale-105 hover:duration-300">
+        <button
+          onClick={handleClickRegister}
+          className="bg-slate-500 rounded-xl text-white py-2 hover:scale-105 hover:duration-300"
+        >
           Register
         </button>
       </form>
