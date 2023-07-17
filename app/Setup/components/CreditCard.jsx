@@ -3,7 +3,7 @@ import Stepper from "./Stepper";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 
-const CreditCard = () => {
+const CreditCard = ({ setActiveStep, activeStep }) => {
   const [number, setNumber] = useState("");
   const [name, setName] = useState("");
   const [expiryMonth, setExpiryMonth] = useState("");
@@ -37,7 +37,7 @@ const CreditCard = () => {
       <h1 className="mb-5 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
         Set up your profile
       </h1>
-      <Stepper activeStep={3} />
+      <Stepper activeStep={activeStep} />
       <div className="mt-5 md:px-5">
         <Cards
           number={number}
@@ -139,12 +139,16 @@ const CreditCard = () => {
         </div>
         <div className="flex justify-end">
           <div className="px-5 pt-1">
-            <a className="text-blue-500 mr-10 hover:cursor-pointer hover:text-blue-700 font-medium underline ">
+            <a
+              onClick={() => setActiveStep(activeStep + 1)}
+              className="text-blue-500 mr-10 hover:cursor-pointer hover:text-blue-700 font-medium underline "
+            >
               Not now
             </a>
             <button
               type="button"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              onClick={() => setActiveStep(activeStep + 1)}
             >
               Next
               <svg

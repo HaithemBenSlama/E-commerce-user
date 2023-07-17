@@ -2,13 +2,13 @@ import CustomInput from "@/components/CustomInput";
 import React from "react";
 import Stepper from "./Stepper";
 
-const Address = () => {
+const Address = ({ activeStep, setActiveStep }) => {
   return (
     <div className="md:px-16 w-full px-10 mt-10 md:w-1/2 bg-slate-100 py-10 rounded-xl shadow-xl">
       <h1 class="mb-5 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
         Set up your profile
       </h1>
-      <Stepper activeStep={2} />
+      <Stepper activeStep={activeStep} />
       <div className="mt-5 p-5">
         <div className="grid gap-6 md:grid-cols-2 mb-5">
           <CustomInput
@@ -87,6 +87,7 @@ const Address = () => {
             <button
               type="button"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              onClick={() => setActiveStep(activeStep + 1)}
             >
               Next
               <svg
