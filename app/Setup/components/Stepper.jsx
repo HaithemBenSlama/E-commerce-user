@@ -2,7 +2,7 @@ import React from "react";
 
 const Stepper = ({ activeStep }) => {
   return (
-    <ol className="flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
+    <ol className="flex items-center w-full text-sm font-medium text-center text-gray-500 sm:text-base">
       <li
         className={`flex md:w-full items-center ${
           activeStep >= 1 ? "text-blue-600 dark:text-blue-500" : ""
@@ -39,11 +39,11 @@ const Stepper = ({ activeStep }) => {
       </li>
       <li
         className={`flex md:w-full items-center ${
-          activeStep >= 2 ? "text-blue-600 dark:text-blue-500" : ""
-        } after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700`}
+          activeStep >= 2 ? "text-blue-600" : ""
+        } after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10`}
       >
         <span
-          className={`flex items-center after:content-['-'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500 ${
+          className={`flex items-center after:content-['-'] sm:after:hidden after:mx-2 after:text-gray-200${
             activeStep >= 2 ? "after:text-gray-500" : ""
           }`}
         >
@@ -68,7 +68,7 @@ const Stepper = ({ activeStep }) => {
               2
             </span>
           )}
-          Account <span className="hidden sm:inline-flex sm:ml-2">Info</span>
+          Address
         </span>
       </li>
       <li
@@ -97,7 +97,7 @@ const Stepper = ({ activeStep }) => {
             3
           </span>
         )}
-        Confirmation
+        Credit Card
       </li>
     </ol>
   );
