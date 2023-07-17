@@ -12,11 +12,13 @@ import {
 import { BsCart2 } from "react-icons/bs";
 import { FaStoreAlt } from "react-icons/fa";
 import Link from "next/link";
+import { BiLogOut } from "react-icons/bi";
 
 const Navbar = ({ refreshCart }) => {
   const [navbar, setNavbar] = useState(false);
   const [cartItemCount, setCartItemCount] = useState(0);
   const [cartTotalAmount, setCartTotalAmount] = useState(0);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
@@ -30,7 +32,15 @@ const Navbar = ({ refreshCart }) => {
 
     setCartItemCount(itemCount);
     setCartTotalAmount(totalAmount);
+
+    const userData = JSON.parse(localStorage.getItem("user"));
+    setUser(userData);
   }, [refreshCart]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+  };
 
   return (
     <nav className="bg-gray-800 fixed w-full z-50">
@@ -83,13 +93,38 @@ const Navbar = ({ refreshCart }) => {
               </Link>
             </div>
 
-            <div className="navBarHover flex items-center gap-2 text-white">
-              <AiOutlineUser className="text-lg" />
-              <Link href={"/Account"}>
-                <p className="text-xs">Sign in</p>
-                <h2 className="text-base font-semibold -mt-1">Account</h2>
-              </Link>
-            </div>
+            {user ? (
+              <div
+                className="navBarHover flex items-center gap-2 text-white cursor-pointer"
+                onClick={handleLogout}
+              >
+                {user.user_image ? (
+                  <img
+                    src={user.user_image}
+                    alt="user-image"
+                    className="w-8 h-8 rounded-full"
+                  />
+                ) : (
+                  <AiOutlineUser className="text-lg" />
+                )}
+                <div className="flex flex-col">
+                  <p className="text-xs">Logout</p>
+                  <h2 className="text-base font-semibold -mt-1">
+                    {user.user_name}
+                  </h2>
+                </div>
+              </div>
+            ) : (
+              <div className="navBarHover flex items-center gap-2 text-white">
+                <AiOutlineUser className="text-lg" />
+                <Link href={"/Account"}>
+                  <div className="flex flex-col">
+                    <p className="text-xs">Sign in</p>
+                    <h2 className="text-base font-semibold -mt-1">Account</h2>
+                  </div>
+                </Link>
+              </div>
+            )}
 
             <div className="flex items-center text-white rounded-full hover:bg-slate-500 duration-300 cursor-pointer">
               <Link href={"/Cart"}>
@@ -152,13 +187,23 @@ const Navbar = ({ refreshCart }) => {
               <AiOutlineHeart className="mr-5" />
               Recorder
             </a>
-            <a
-              href={"/Account"}
-              className="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
-            >
-              <AiOutlineUser className="mr-5" />
-              Account
-            </a>
+            {user ? (
+              <a
+                onClick={handleLogout}
+                className="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
+              >
+                <BiLogOut className="mr-5" />
+                Logout
+              </a>
+            ) : (
+              <a
+                href={"/Account"}
+                className="border-b-2 border-gray-50 border-opacity-30 text-gray-300 hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center"
+              >
+                <AiOutlineUser className="mr-5" />
+                Sign In
+              </a>
+            )}
           </div>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <div className="relative">

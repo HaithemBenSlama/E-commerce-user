@@ -66,7 +66,7 @@ const Featured = ({ data, refreshCart, setRefreshCart }) => {
             </div>
           </div>
           <div className="flex items-center justify-center max-h-72 -mt-5">
-            <Image src={macbook} alt="product_image" className="w-96" />
+            <img src={data?.p_photo} alt="product_image" className="w-96" />
           </div>
         </div>
       </Center>

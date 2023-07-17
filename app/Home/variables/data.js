@@ -2,8 +2,7 @@ export const dataHome = {
   featureProduct: {
     p_id: 12,
     p_name: "MACBOOK AIR M1 8GB 256GB",
-    p_photo:
-      "https://i5.walmartimages.com/asr/049f4d39-0d3d-401b-bec4-7219b3719b46.5a77cd4f5ea0ac00c4b93c57914306f8.jpeg",
+    p_photo: "https://i.imgur.com/MaW8jhx.png",
     p_desc:
       "The MacBook Air, Apple's thinnest and lightest notebook, is transformed by the powerful Apple M1 chip. With a dramatic performance boost for the CPU and GPU. And up to 18 hours of battery life. Apple's thinnest and lightest notebook is transformed by the Apple M1 chip",
     p_rating: 3.5,
