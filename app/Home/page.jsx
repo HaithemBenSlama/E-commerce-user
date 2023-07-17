@@ -26,12 +26,12 @@ const page = () => {
         />
         <Banner />
         <BestSells
-          data={dataHome?.newArrivals}
+          data={dataHome?.bestSales}
           refreshCart={refreshCart}
           setRefreshCart={setRefreshCart}
         />
         <BestRating
-          data={dataHome?.newArrivals}
+          data={dataHome?.bestRating}
           refreshCart={refreshCart}
           setRefreshCart={setRefreshCart}
         />

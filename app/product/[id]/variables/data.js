@@ -29,19 +29,5 @@ export const dataProduct = {
       p_review_date: "Apr 16,2023",
       p_review_msg: "Good Service !",
     },
-    {
-      p_feed_id: 2,
-      p_user_name: "Imed Ben Slama",
-      p_user_rate: 3.5,
-      p_review_date: "Apr 16,2023",
-      p_review_msg: "Good Service !",
-    },
-    {
-      p_feed_id: 3,
-      p_user_name: "Anonyms",
-      p_user_rate: 3.5,
-      p_review_date: "Apr 16,2023",
-      p_review_msg: "Good Service !",
-    },
   ],
 };
