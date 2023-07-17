@@ -2,11 +2,11 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import React, { useState } from "react";
-import Login from "./Login";
+import Login from "./components/Login";
 import { motion } from "framer-motion";
-import SignUp from "./SignUp";
-import ForgetPassword from "./ForgetPassword";
-import VerifyEmail from "./VerifyEmail";
+import SignUp from "./components/SignUp";
+import ForgetPassword from "./components/ForgetPassword";
+import VerifyEmail from "./components/VerifyEmail";
 
 const MyAccount = () => {
   const [activeComponent, setActiveComponent] = useState("login");
