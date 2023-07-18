@@ -4,10 +4,10 @@ import React from "react";
 const ForgetPassword = () => {
   return (
     <div className="md:px-16 w-full px-10 mt-10 md:w-1/3 bg-slate-100 py-10 rounded-xl shadow-xl">
-      <h1 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+      <h1 className="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
         Forgot your password?
       </h1>
-      <p class="font-light text-gray-500">
+      <p className="font-light text-gray-500">
         Don't fret! Just type in your email and we will send you a code to reset
         your password!
       </p>
@@ -36,7 +36,7 @@ const ForgetPassword = () => {
           </div>
           <div className="ml-3 text-sm">
             <label
-              for="terms"
+              htmlFor="terms"
               className="font-light text-gray-500 dark:text-gray-300"
             >
               I accept the{" "}

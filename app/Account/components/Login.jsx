@@ -99,7 +99,7 @@ const Login = ({ handleComponentChange }) => {
             />
           </div>
           <div className="ml-3 text-sm">
-            <label for="terms" className="font-meduim text-gray-500">
+            <label htmlFor="terms" className="font-meduim text-gray-500">
               Remember Me
             </label>
           </div>

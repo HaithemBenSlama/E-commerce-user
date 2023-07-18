@@ -8,8 +8,7 @@ import Banner from "./components/Banner";
 import BestSells from "./components/BestSales";
 import BestRating from "./components/BestRating";
 import Footer from "@/components/Footer";
-import Loading from "./loading";
-const page = () => {
+const HomePage = () => {
   const [refreshCart, setRefreshCart] = useState();
   return (
     <main>
@@ -42,4 +41,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default HomePage;

@@ -4,13 +4,13 @@ import Stepper from "./Stepper";
 const Finish = () => {
   return (
     <div className="md:px-16 w-full px-10 mt-10 md:w-1/2 bg-slate-100 py-10 rounded-xl shadow-xl">
-      <h1 class="mb-5 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+      <h1 className="mb-5 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
         Set up your profile
       </h1>
       <Stepper activeStep={4} />
       <div className="mt-5 p-5">
-        <h3 class="text-2xl">Your profile is set up!</h3>
-        <div class="flex justify-center">
+        <h3 className="text-2xl">Your profile is set up!</h3>
+        <div className="flex justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="150px"

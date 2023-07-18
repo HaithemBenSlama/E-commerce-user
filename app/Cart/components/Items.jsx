@@ -53,7 +53,7 @@ const Items = ({ index, item, setRefresh, refresh }) => {
                       {"$" + item?.p_price}
                     </span>
                     <span className="text-xl font-bold ml-2">
-                      {"$" + item?.priceAfterDiscount}
+                      {"$" + item?.priceAfterDiscount.toFixed(2)}
                     </span>
                   </div>
                 )}

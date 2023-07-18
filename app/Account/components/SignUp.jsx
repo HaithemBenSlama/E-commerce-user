@@ -82,7 +82,7 @@ const SignUp = ({ handleComponentChange }) => {
           </div>
           <div className="ml-3 text-sm">
             <label
-              for="terms"
+              htmlFor="terms"
               className="font-light text-gray-500 dark:text-gray-300"
             >
               By signing up, you are creating an E-commerce account, and you

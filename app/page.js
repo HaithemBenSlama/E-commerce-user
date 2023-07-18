@@ -1,6 +1,5 @@
-import Featured from "@/app/Home/components/Featured";
-import Navbar from "@/components/Navbar";
+import HomePage from "./Home/page";
 
 export default function Home() {
-  return <main></main>;
+  return <HomePage />;
 }
