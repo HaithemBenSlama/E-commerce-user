@@ -8,8 +8,8 @@ const ForgetPassword = () => {
         Forgot your password?
       </h1>
       <p className="font-light text-gray-500">
-        Don't fret! Just type in your email and we will send you a code to reset
-        your password!
+        Don{"'"}t fret! Just type in your email and we will send you a code to
+        reset your password!
       </p>
 
       <form className="flex flex-col gap-4 mt-5">
